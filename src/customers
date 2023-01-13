@@ -1,0 +1,342 @@
+CREATE TABLE products
+(
+    id          SERIAL PRIMARY KEY,
+    name        VARCHAR,
+    description VARCHAR,
+    price       VARCHAR,
+    weight      VARCHAR
+);
+
+INSERT INTO products (name, description, price, weight)
+VALUES ('Yogurt - French Vanilla', 'a pede posuere nonummy integer', '$2.30', 66);
+INSERT INTO products (name, description, price, weight)
+VALUES ('Cheese Cloth No 60', 'eget vulputate ut ultrices vel augue', '$5.20', 32);
+INSERT INTO products (name, description, price, weight)
+VALUES ('Sugar - Cubes', 'nulla elit ac nulla sed', '$1.87', 55);
+INSERT INTO products (name, description, price, weight)
+VALUES ('Wine - Fume Blanc Fetzer', 'tincidunt nulla mollis molestie lorem', '$1.82', 76);
+INSERT INTO products (name, description, price, weight)
+VALUES ('Parsnip', 'ullamcorper augue a suscipit nulla elit', '$0.90', 17);
+INSERT INTO products (name, description, price, weight)
+VALUES ('Wine - Cahors Ac 2000, Clos', 'morbi vestibulum velit id pretium', '$4.44', 78);
+INSERT INTO products (name, description, price, weight)
+VALUES ('Cheese - Bocconcini', 'nulla sed accumsan felis ut at', '$4.85', 24);
+INSERT INTO products (name, description, price, weight)
+VALUES ('V8 Splash Strawberry Kiwi', 'ultrices posuere cubilia curae duis faucibus', '$8.28', 99);
+INSERT INTO products (name, description, price, weight)
+VALUES ('Soup - Campbells Beef Stew', 'rutrum at lorem integer tincidunt ante', '$8.23', 29);
+INSERT INTO products (name, description, price, weight)
+VALUES ('Pur Source', 'id turpis integer aliquet massa', '$1.23', 6);
+INSERT INTO products (name, description, price, weight)
+VALUES ('Extract Vanilla Pure', 'in eleifend quam a odio', '$4.11', 32);
+INSERT INTO products (name, description, price, weight)
+VALUES ('Ham - Cooked Bayonne Tinned', 'a feugiat et eros vestibulum', '$7.54', 58);
+INSERT INTO products (name, description, price, weight)
+VALUES ('Garbage Bags - Clear', 'sodales sed tincidunt eu felis', '$8.50', 44);
+INSERT INTO products (name, description, price, weight)
+VALUES ('Wine - Magnotta - Bel Paese White', 'rutrum nulla nunc purus phasellus in', '$5.57', 50);
+INSERT INTO products (name, description, price, weight)
+VALUES ('Pasta - Lasagna Noodle, Frozen', 'amet justo morbi ut odio cras', '$0.62', 62);
+INSERT INTO products (name, description, price, weight)
+VALUES ('Pasta - Fettuccine, Dry', 'est congue elementum in hac', '$9.06', 67);
+INSERT INTO products (name, description, price, weight)
+VALUES ('Ice Cream - Turtles Stick Bar', 'integer ac leo pellentesque ultrices', '$3.41', 35);
+INSERT INTO products (name, description, price, weight)
+VALUES ('Sprouts - China Rose', 'eget orci vehicula condimentum curabitur', '$6.41', 23);
+INSERT INTO products (name, description, price, weight)
+VALUES ('Shrimp - Black Tiger 13/15', 'arcu sed augue aliquam erat volutpat', '$3.29', 67);
+INSERT INTO products (name, description, price, weight)
+VALUES ('Chips - Doritos', 'libero rutrum ac lobortis vel', '$9.95', 42);
+
+CREATE TABLE product_info
+(
+    id              SERIAL PRIMARY KEY,
+    expiration_date DATE,
+    country         VARCHAR,
+    color           VARCHAR,
+    product_id      INT REFERENCES products (id)
+);
+
+INSERT INTO product_info (expiration_date, country, color, product_id)
+VALUES ('12/13/2022', 'Greece', 'Violet', 1);
+INSERT INTO product_info (expiration_date, country, color, product_id)
+VALUES ('12/9/2022', 'Ireland', 'Goldenrod', 2);
+INSERT INTO product_info (expiration_date, country, color, product_id)
+VALUES ('12/16/2022', 'China', 'Green', 3);
+INSERT INTO product_info (expiration_date, country, color, product_id)
+VALUES ('10/31/2022', 'Poland', 'Maroon', 4);
+INSERT INTO product_info (expiration_date, country, color, product_id)
+VALUES ('2/23/2022', 'South Africa', 'Violet', 5);
+INSERT INTO product_info (expiration_date, country, color, product_id)
+VALUES ('10/28/2022', 'Honduras', 'Aquamarine', 6);
+INSERT INTO product_info (expiration_date, country, color, product_id)
+VALUES ('10/1/2022', 'Kyrgyzstan', 'Pink', 7);
+INSERT INTO product_info (expiration_date, country, color, product_id)
+VALUES ('9/5/2022', 'China', 'Indigo', 8);
+INSERT INTO product_info (expiration_date, country, color, product_id)
+VALUES ('1/12/2022', 'Honduras', 'Puce', 9);
+INSERT INTO product_info (expiration_date, country, color, product_id)
+VALUES ('2/2/2022', 'China', 'Green', 10);
+INSERT INTO product_info (expiration_date, country, color, product_id)
+VALUES ('9/5/2022', 'Indonesia', 'Teal', 11);
+INSERT INTO product_info (expiration_date, country, color, product_id)
+VALUES ('5/17/2022', 'Indonesia', 'Turquoise', 12);
+INSERT INTO product_info (expiration_date, country, color, product_id)
+VALUES ('10/7/2022', 'Iran', 'Fuscia', 13);
+INSERT INTO product_info (expiration_date, country, color, product_id)
+VALUES ('8/14/2022', 'China', 'Purple', 14);
+INSERT INTO product_info (expiration_date, country, color, product_id)
+VALUES ('9/2/2022', 'Brazil', 'Yellow', 15);
+INSERT INTO product_info (expiration_date, country, color, product_id)
+VALUES ('7/29/2022', 'Peru', 'Yellow', 16);
+INSERT INTO product_info (expiration_date, country, color, product_id)
+VALUES ('8/20/2022', 'Canada', 'Green', 17);
+INSERT INTO product_info (expiration_date, country, color, product_id)
+VALUES ('8/7/2022', 'Ukraine', 'Aquamarine', 18);
+INSERT INTO product_info (expiration_date, country, color, product_id)
+VALUES ('10/15/2022', 'Indonesia', 'Aquamarine', 19);
+INSERT INTO product_info (expiration_date, country, color, product_id)
+VALUES ('7/13/2022', 'South Korea', 'Turquoise', 20);
+
+CREATE TABLE customers
+(
+    id           SERIAL PRIMARY KEY,
+    first_name   VARCHAR(20),
+    last_name    VARCHAR(20),
+    email        VARCHAR UNIQUE,
+    phone_number VARCHAR
+);
+
+INSERT INTO customers (first_name, last_name, email, phone_number)
+VALUES ('Harcourt', 'Willeson', 'hwilleson0@bravesites.com', '591-593-2649');
+INSERT INTO customers (first_name, last_name, email, phone_number)
+VALUES ('Kally', 'Stockin', 'kstockin1@de.vu', '615-649-2683');
+INSERT INTO customers (first_name, last_name, email, phone_number)
+VALUES ('Lisle', 'Baythorp', 'lbaythorp2@dedecms.com', '996-373-9442');
+INSERT INTO customers (first_name, last_name, email, phone_number)
+VALUES ('Frank', 'MacKellar', 'fmackellar3@stumbleupon.com', '274-299-0376');
+INSERT INTO customers (first_name, last_name, email, phone_number)
+VALUES ('Xylia', 'Lanahan', 'xlanahan4@cmu.edu', '906-771-6904');
+INSERT INTO customers (first_name, last_name, email, phone_number)
+VALUES ('Sharla', 'Arnke', 'sarnke5@behance.net', '880-754-4878');
+INSERT INTO customers (first_name, last_name, email, phone_number)
+VALUES ('Robinet', 'Grimshaw', 'rgrimshaw6@yandex.ru', '513-552-4350');
+INSERT INTO customers (first_name, last_name, email, phone_number)
+VALUES ('Belle', 'Lachaize', 'blachaize7@marketwatch.com', '800-852-1589');
+INSERT INTO customers (first_name, last_name, email, phone_number)
+VALUES ('Rutter', 'Ebbers', 'rebbers8@craigslist.org', '260-915-3636');
+INSERT INTO customers (first_name, last_name, email, phone_number)
+VALUES ('Penrod', 'Piggens', 'ppiggens9@deviantart.com', '178-817-1517');
+INSERT INTO customers (first_name, last_name, email, phone_number)
+VALUES ('Stefania', 'Addicote', 'saddicotea@chronoengine.com', '834-139-1605');
+INSERT INTO customers (first_name, last_name, email, phone_number)
+VALUES ('Wiatt', 'Sakins', 'wsakinsb@uiuc.edu', '601-897-1534');
+INSERT INTO customers (first_name, last_name, email, phone_number)
+VALUES ('Raul', 'Matejovsky', 'rmatejovskyc@si.edu', '521-117-8566');
+INSERT INTO customers (first_name, last_name, email, phone_number)
+VALUES ('Trula', 'Bolduc', 'tbolducd@unblog.fr', '446-841-8539');
+INSERT INTO customers (first_name, last_name, email, phone_number)
+VALUES ('Mychal', 'Coraini', 'mcorainie@wiley.com', '585-925-6124');
+INSERT INTO customers (first_name, last_name, email, phone_number)
+VALUES ('Oralee', 'Cambell', 'ocambellf@issuu.com', '197-173-2305');
+INSERT INTO customers (first_name, last_name, email, phone_number)
+VALUES ('Lorianna', 'Harrell', 'lharrellg@bigcartel.com', '386-784-4877');
+INSERT INTO customers (first_name, last_name, email, phone_number)
+VALUES ('Davin', 'Flay', 'dflayh@amazon.de', '189-590-8928');
+INSERT INTO customers (first_name, last_name, email, phone_number)
+VALUES ('Daniele', 'Sporner', 'dsporneri@gizmodo.com', '677-594-7519');
+INSERT INTO customers (first_name, last_name, email, phone_number)
+VALUES ('Cyrillus', 'Niesel', 'cnieselj@creativecommons.org', '847-282-8481');
+
+CREATE TABLE basket
+(
+    id          SERIAL PRIMARY KEY,
+    basket_name VARCHAR(20),
+    customer_id INT REFERENCES customers (id)
+);
+
+
+insert into basket (basket_name, customer_id)
+values ('nisi', 1);
+insert into basket (basket_name, customer_id)
+values ('leo', 2);
+insert into basket (basket_name, customer_id)
+values ('lorem', 3);
+insert into basket (basket_name, customer_id)
+values ('nulla', 4);
+insert into basket (basket_name, customer_id)
+values ('amet', 5);
+insert into basket (basket_name, customer_id)
+values ('est', 6);
+insert into basket (basket_name, customer_id)
+values ('semper', 7);
+insert into basket (basket_name, customer_id)
+values ('odio', 8);
+insert into basket (basket_name, customer_id)
+values ('habitasse', 9);
+insert into basket (basket_name, customer_id)
+values ('enim', 10);
+insert into basket (basket_name, customer_id)
+values ('eleifend', 11);
+insert into basket (basket_name, customer_id)
+values ('interdum', 12);
+insert into basket (basket_name, customer_id)
+values ('neque', 13);
+insert into basket (basket_name, customer_id)
+values ('enim', 14);
+insert into basket (basket_name, customer_id)
+values ('pede', 15);
+insert into basket (basket_name, customer_id)
+values ('imperdiet', 16);
+insert into basket (basket_name, customer_id)
+values ('vestibulum', 17);
+insert into basket (basket_name, customer_id)
+values ('consequat', 18);
+insert into basket (basket_name, customer_id)
+values ('ultrices', 19);
+insert into basket (basket_name, customer_id)
+values ('luctus', 20);
+
+
+CREATE TABLE product_basket
+(
+    basket_id  INT REFERENCES basket (id),
+    product_id INT REFERENCES products (id)
+);
+
+--1. Баардык продукталарды(Products) жана информацияларды чыгар.
+SELECT *
+FROM products
+         LEFT JOIN product_info pi on products.id = pi.product_id;
+
+--2. Информациясы бар болгон продукталарды гана чыгар.
+SELECT *
+FROM products
+         RIGHT JOIN product_info pi on products.id = pi.product_id;
+
+--3. Информациясы жок(null) болгон продукталарды чыгар.
+SELECT *
+FROM products
+         LEFT JOIN product_basket pb on products.id = pb.product_id
+WHERE basket_id IS NULL;
+
+--4. Баардык продукталардын атын жана срогун чыгар.
+SELECT name, expiration_date
+FROM products
+         JOIN product_info pi on products.id = pi.product_id;
+
+--5. Баардык продукталарды жана анын мамлекеттери "М" менен башталган шаарларын чыгар.
+SELECT *
+FROM products
+         FULL JOIN product_info pi on products.id = pi.product_id
+WHERE country ILIKE 'M%';
+
+--6. Баардык кардардын(Customers) аттарын жана кардарга тийешелуу карзинанын(Basket_терин) аттарын сорттоп чыгар.(asc,desc)
+--ASCENDING------
+SELECT first_name, basket_name
+FROM customers
+         JOIN basket b on customers.id = b.customer_id
+ORDER BY basket_name;
+
+-- DESCENDING------
+SELECT first_name, basket_name
+FROM customers
+         JOIN basket b on customers.id = b.customer_id
+ORDER BY basket_name DESC;
+
+--7. Кардардын аты жана кардардын продуктулары чыксын.
+SELECT first_name, name
+FROM customers
+         JOIN basket b on customers.id = b.customer_id
+         JOIN product_basket pb on b.id = pb.basket_id
+         JOIN products p on p.id = pb.product_id;
+
+--8. Кардардын аты, кардар алган продуктун аты, баасы, салмагы чыксын.
+SELECT first_name, name, price, weight
+FROM customers
+         JOIN basket b on customers.id = b.customer_id
+         JOIN product_basket pb on b.id = pb.basket_id
+         JOIN products p on p.id = pb.product_id;
+
+--9. Бир кардар эки окшош продукт алган болсо, кардардын аты,
+--   кардар алган продукталарынын аты уникалдуу болуп баасы жана салмагы кошулуп чыгар.
+SELECT DISTINCT (p.name), first_name, price, weight
+FROM customers
+         JOIN basket b on customers.id = b.customer_id
+         JOIN product_basket pb on b.id = pb.basket_id
+         JOIN products p on p.id = pb.product_id;
+--10.Бир өлкөдө чыккан продукталдын баарын чыгар.
+SELECT *
+FROM products
+         JOIN product_info pi on products.id = pi.product_id
+WHERE country = 'China';
+
+--11.Кардарлардын баарын жана алган продукталарынын баасынын суммасын тегеректеп (округлить) чыгар.
+SELECT DISTINCT (first_name), round(avg(price))
+FROM customers
+         JOIN basket b on customers.id = b.customer_id
+         JOIN product_basket pb on b.id = pb.basket_id
+         JOIN products p on p.id = pb.product_id
+group by first_name;
+
+--12."2021" ден "2023" кө чейинки сроктогу продукталардын атын жана срокторун чыгар.
+SELECT name, expiration_date
+FROM products
+         JOIN product_info pi on products.id = pi.product_id
+WHERE expiration_date
+          BETWEEN DATE'1-1-2021' AND DATE'2-2-2023';
+
+--13.Срогу "2022" болгон продукталардын шаарын , продукталардын атын жана баасын чыгар бирок баалары 0 болуп калсын.
+SELECT country, name, price * 0
+FROM products
+         JOIN product_info pi on products.id = pi.product_id
+WHERE expiration_date = DATE'1-1-2023';
+
+--14.Баардык кардарлардын продукталарынын сумассын чыгар.
+SELECT sum(price)
+FROM customers
+         JOIN basket b on customers.id = b.customer_id
+         JOIN product_basket pb on b.id = pb.basket_id
+         JOIN products p on p.id = pb.product_id;
+
+--15.Кардардын аты жана ал сатып алган продуктунун аты, тусу чыксын.
+SELECT DISTINCT (first_name), name, color
+FROM customers
+         JOIN basket b on customers.id = b.customer_id
+         JOIN product_basket pb on b.id = pb.basket_id
+         JOIN products p on p.id = pb.product_id
+         JOIN product_info pi on p.id = pi.product_id;
+
+--16.Баардык продуктулардын салмактарын чыгар.
+SELECT name, weight
+FROM products
+         JOIN product_info pi on products.id = pi.product_id;
+
+--17.Кардарлардын email_дары "com" менен буткон кардарлардын аттары, корзинасынын аты чыксын.
+SELECT first_name, basket_name
+FROM customers
+         JOIN basket b on customers.id = b.customer_id
+WHERE email ILIKE '%com';
+
+--18.Продуклардын атын, кыскача маалыматын(description), кардардын атын чыгар качан кардарлардын номери жок(null) болсо.
+SELECT name, description, first_name
+FROM products
+         JOIN product_info pi on products.id = pi.product_id
+         JOIN product_basket pb on products.id = pb.product_id
+         JOIN basket b on b.id = pb.basket_id
+         JOIN customers c on c.id = b.customer_id
+WHERE phone_number IS NULL;
+
+--19.Бардык продуктунун тустору жана тустору окшош продукталары чыксын.
+SELECT DISTINCT (color), name
+FROM product_info
+         JOIN products p on p.id = product_info.product_id;
+
+--20.Баардык продукталардын мамлекти окшош болгон продукталардын атын жана анын кардарларын атын чыгар.;
+SELECT DISTINCT (country), name, first_name
+FROM customers
+         JOIN basket b on customers.id = b.customer_id
+         JOIN product_basket pb on b.id = pb.basket_id
+         JOIN products p on p.id = pb.product_id
+         JOIN product_info pi on p.id = pi.product_id
+WHERE country = country;
